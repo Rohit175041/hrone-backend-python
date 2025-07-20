@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 import os
 
-# ✅ Import routes and db using package prefix
+# Import routes and db using package prefix
 from hrone_backend.routes.product_routes import router as product_router
 from hrone_backend.routes.order_routes import router as order_router
 from hrone_backend.db import connect_db

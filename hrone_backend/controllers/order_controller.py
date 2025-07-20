@@ -7,7 +7,7 @@ from hrone_backend.models.order_model import OrderIn
 from hrone_backend.utils import is_valid_objectid
 
 
-# ✅ POST /orders
+#POST /orders
 def create_order(order: OrderIn):
     try:
         user_id = order.userId
@@ -27,7 +27,7 @@ def create_order(order: OrderIn):
         raise HTTPException(status_code=500, detail=f"Order creation failed: {str(e)}")
 
 
-# ✅ GET /orders/{user_id}
+#GET /orders/{user_id}
 def get_orders_by_user(user_id: str, limit: int = 10, offset: int = 0) -> Dict[str, Any]:
     try:
         orders_cursor = (

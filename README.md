@@ -1,2 +1,25 @@
-MONGO_URI=mongodb+srv://rohit:rohit%40123@cluster0.xygt9na.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-PORT=3000
+# 🛒 HROne Backend Intern Hiring Task
+
+## Features
+
+-  Create Product
+-  List Products with filters (name, size, pagination)
+-  Create Order
+-  List Orders by User ID with pagination
+-  Dockerized setup
+-  Manual and Script-Based API Testing
+
+---
+
+## Tech Stack
+
+- **Backend:** FastAPI (Python 3.11)
+- **Database:** MongoDB (MongoDB Atlas or local)
+- **ODM/Driver:** PyMongo
+- **API Testing:** Postman, `requests` (manual script)
+- **Containerization:** Docker
+
+---
+
+## Project Structure
+

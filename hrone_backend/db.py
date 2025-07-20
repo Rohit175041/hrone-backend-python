@@ -21,7 +21,7 @@ def connect_db():
         print(f"Error connecting to MongoDB: {e}")
         exit(1)
 
-# ✅ Global collections for direct import
+# Global collections for direct import
 _db = connect_db()
 orders_col = _db["orders"]
 products_col = _db["products"]
