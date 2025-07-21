@@ -25,7 +25,8 @@
 
 ## 📁 Project Structure
 
-<img width="151" height="196" alt="image" src="https://github.com/user-attachments/assets/1dde657f-c69a-4f66-b6d7-95f672903fb0" />
+<img width="263" height="316" alt="image" src="https://github.com/user-attachments/assets/5d78111b-61f3-4afe-95ce-4df412565072" />
+
 
 
 ----
