@@ -1,6 +1,7 @@
 from fastapi import HTTPException
 from hrone_backend.db import connect_db
 from bson import ObjectId
+from hrone_backend.logger import logger
 
 db = connect_db()
 products_col = db["products"]
@@ -9,8 +10,10 @@ products_col = db["products"]
 def create_product(product: dict):
     try:
         result = products_col.insert_one(product)
+        logger.info(f"Product created with ID: {result.inserted_id}")
         return {"id": str(result.inserted_id)}
     except Exception as e:
+        logger.error(f"Failed to create product: {e}")
         raise HTTPException(status_code=400, detail=str(e))
 
 
@@ -22,7 +25,8 @@ def list_products(name=None, size=None, limit=10, offset=0):
             query["name"] = {"$regex": name, "$options": "i"}
         if size:
             query["sizes.size"] = size
-
+            
+        logger.info(f"Listing products with query: {query}, limit: {limit}, offset: {offset}")
         products_cursor = products_col.find(query).skip(offset).limit(limit)
         products = [
             {
@@ -32,7 +36,7 @@ def list_products(name=None, size=None, limit=10, offset=0):
             }
             for product in products_cursor
         ]
-
+        logger.info(f"Retrieved {len(products)} product(s)")
         return {
             "data": products,
             "page": {
@@ -42,4 +46,5 @@ def list_products(name=None, size=None, limit=10, offset=0):
             }
         }
     except Exception as e:
+        logger.error(f"Failed to list products: {e}")
         raise HTTPException(status_code=500, detail=str(e))

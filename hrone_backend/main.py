@@ -1,7 +1,11 @@
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
+
 import os
+
+#logger
+from hrone_backend.logger import logger
 
 # Import routes and db using package prefix
 from hrone_backend.routes.product_routes import router as product_router
@@ -33,8 +37,9 @@ app.add_middleware(
 )
 
 #testing
-@app.get("/ping")
+@app.get("/")
 def ping():
+    logger.info("Ping endpoint hit.")
     return {"message": "ping"}
 
 # Include routers
@@ -45,4 +50,5 @@ app.include_router(order_router)
 if __name__ == "__main__":
     import uvicorn
     port = int(os.getenv("PORT", 3000))
+    logger.info(f"Starting server on port {port}...")
     uvicorn.run("main:app", host="0.0.0.0", port=port, reload=True)

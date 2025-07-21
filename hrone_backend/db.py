@@ -2,6 +2,8 @@ from pymongo import MongoClient
 from dotenv import load_dotenv
 import os
 
+from hrone_backend.logger import logger
+
 # Load environment variables from .env file
 load_dotenv()
 
@@ -15,10 +17,12 @@ def connect_db():
 
         client = MongoClient(mongo_uri)
         db = client[db_name]
-        print(f"MongoDB connected to '{db_name}'")
+        logger.info(f"MongoDB connected to '{db_name}'")
+        # print(f"MongoDB connected to '{db_name}'")
         return db
     except Exception as e:
-        print(f"Error connecting to MongoDB: {e}")
+        logger.error(f"Error connecting to MongoDB: {e}")
+        # print(f"Error connecting to MongoDB: {e}")
         exit(1)
 
 # Global collections for direct import
