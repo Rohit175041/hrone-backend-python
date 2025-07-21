@@ -25,25 +25,8 @@
 
 ## 📁 Project Structure
 
-hrone-backend-python/
-├── Dockerfile
-├── .env
-├── requirements.txt
-├── hrone_backend/
-│ ├── init.py
-│ ├── main.py
-│ ├── db.py
-│ ├── utils.py
-│ ├── logger.py ✅ Logger config
-│ ├── models/
-│ │ └── order_model.py
-│ ├── controllers/
-│ │ └── order_controller.py
-│ └── routes/
-│ └── order_routes.py
-├── logs/
-│ └── hrone.log ✅ Log output file
-├── test_runner.py ✅ Manual test script
+<img width="151" height="196" alt="image" src="https://github.com/user-attachments/assets/1dde657f-c69a-4f66-b6d7-95f672903fb0" />
+
 
 ----
 
